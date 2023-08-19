@@ -2,6 +2,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { AuthButtonServer } from './components/auth-button-server'
+import { PostsList } from './components/posts-list'
 
 export default async function Home () {
   const supabase = createServerComponentClient({ cookies })
@@ -12,14 +13,16 @@ export default async function Home () {
   }
   const { data: posts } = await supabase
     .from('posts')
-    .select('*, users(*)')
+    .select('*, user:users(name, avatar_url, user_name)')
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between">
+
+    <section className='max-w-[800px] mx-auto border-r border-l border-white/20 min-h-screen'>
       <AuthButtonServer />
-      <pre>
-        {JSON.stringify(posts, null, 2)}
-      </pre>
+      <PostsList posts={posts} />
+    </section>
+
     </main>
   )
 }
