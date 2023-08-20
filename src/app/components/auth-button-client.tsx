@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { type Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { GitHubIcon } from './icons'
-import { Button } from '@nextui-org/button'
+import { Button } from '@nextui-org/react'
 
 export function AuthButton ({ session }: { session: Session | null }) {
   const supabase = createClientComponentClient()
