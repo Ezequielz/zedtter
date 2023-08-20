@@ -16,7 +16,7 @@ export default function PostCard ({
 }) {
   // console.log(avatarUrl)
   return (
-    <Card className="max-w-[340px] shadow-none bg-transparent hover:bg-slate-800 transition border-b rounded-none cursor-pointer border-white/20">
+    <Card className=" shadow-none bg-transparent hover:bg-slate-800 transition border-b rounded-none cursor-pointer border-white/20">
       <CardHeader className="justify-between">
         <div className="flex gap-x-2">
           <Link href={`/${userName}`}>
