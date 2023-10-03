@@ -5,6 +5,7 @@ import { AuthButtonServer } from './components/auth-button-server'
 import { PostsList } from './components/posts-list'
 import { type Database } from './types/database'
 import { ComposePost } from './components/compose-post'
+import { type Post } from './types/posts'
 
 export default async function Home () {
   const supabase = createServerComponentClient<Database>({ cookies })
@@ -23,7 +24,7 @@ export default async function Home () {
 
     <section className='max-w-[600px] w-full mx-auto border-r border-l border-white/20 min-h-screen'>
       <ComposePost userAvatarUrl={session.user?.user_metadata?.avatar_url} />
-      <PostsList posts={posts} />
+      <PostsList posts={posts as Post[]} />
     </section>
       <AuthButtonServer />
 
