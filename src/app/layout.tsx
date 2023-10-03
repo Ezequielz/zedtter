@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Zedtter',
   description: 'Clon de twitter'
 }
+export const dynamic = 'force-dynamic'
 
 export default function RootLayout ({
   children
